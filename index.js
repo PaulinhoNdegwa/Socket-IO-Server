@@ -21,14 +21,15 @@ const io = new Server(server, {
 });
 
 io.on('connection', (socket) => {
-    console.log("A user has connected");
+    const date = new Date()
+    console.log(`A user has connected at ${date}`);
 
     socket.on('message', (message) => {
         console.log(`message from socket ${socket.id} : ${message}`)
     })
 
     socket.on('disconnect', () => {
-        console.log(`socked id ${socket.id} disconnected`)
+        console.log(`socked id ${socket.id} disconnected at ${date}`)
     })
 })
 
